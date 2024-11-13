@@ -8,19 +8,21 @@ export const AuthContext=createContext()
 function AuthContextProvider({children}) {
  
     const [state,setState]=useState({
-        isAuth:false,
-        token:null
+        isAuth:true,
+        token:null,
+        name:""
     })
     
     const[totalPage,setTotalPages]=useState(0)
     const [filter,setFilter]=useState("")
     let cart=[]
     let wishlist=[]
-    const loginUser=(val)=>{
+    const loginUser=(token,name)=>{
         setState(
             {...state,
             isAuth:true,
-            token:val
+            token:token,
+            name:name
         }
         )
     }

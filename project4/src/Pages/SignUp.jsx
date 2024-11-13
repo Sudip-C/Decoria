@@ -1,8 +1,36 @@
-import {
-    Flex, Box, FormControl, FormLabel, Input, Checkbox, Stack, Link, Button, Heading, Text, useColorModeValue,
+  import {
+    Flex, Box, FormControl, FormLabel, Input, Stack, Link, Button, Heading, Text, useColorModeValue,
   } from '@chakra-ui/react';
-  import {Link as NavLink} from "react-router-dom"
+  import { useState } from 'react';
+  import axios from 'axios';
+  import {Link as NavLink} from "react-router-dom";
+  import { useNavigate } from "react-router-dom";
+
+
   export default function SignUp() {
+      const [formData,setFormData]=useState({name:'',email:'',password:''})
+      
+      const navigate=useNavigate()
+
+      const handleChange=(e)=>{
+        e.preventDefault()
+        setFormData((prev) => ({
+          ...prev,
+          [e.target.name]: e.target.value
+        }));
+      }
+
+      const handleSubmit=(e)=>{
+          e.preventDefault()
+          axios.post('https://decoria-backend.onrender.com/api/users/signup',formData)
+          .then(
+            (data)=>data.data.token?navigate('/login'):alert("smething wrong")
+          )
+          .catch(
+            (err)=>alert(err.message)
+          )
+          }
+
 
     return (
       <Flex
@@ -23,23 +51,40 @@ import {
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
+            <FormControl id="name">
+                <FormLabel>Name</FormLabel>
+                <Input
+                  name='name'
+                  value={formData.name}
+                  onChange={handleChange}
+                  type="name" />
+              </FormControl>
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
-                <Input type="email" />
+                <Input 
+                name='email'
+                value={formData.email}
+                onChange={handleChange}
+                type="email" />
               </FormControl>
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
-                <Input type="password" />
+                <Input 
+                name='password'
+                value={formData.password}
+                onChange={handleChange}
+                type="password" />
               </FormControl>
               <Stack spacing={10}>
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
                   align={'start'}
-                  justify={'space-between'}>
-                  <Checkbox>Remember me</Checkbox>
-                  <NavLink color={'blue.400'} to="/login" >Already have account</NavLink>
+                  justify={'center'}>
+                  {/* <Checkbox>Remember me</Checkbox> */}
+                  <NavLink color={'blue.600'} to="/login" >Already have account</NavLink>
                 </Stack>
                 <Button
+                onClick={(e)=>handleSubmit(e)}
                   bg={'blue.400'}
                   color={'white'}
                   _hover={{

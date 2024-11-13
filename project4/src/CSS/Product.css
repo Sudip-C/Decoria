@@ -5,6 +5,34 @@
     padding: 40px;
     display: grid;
     gap: 40px;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
+}
+@media only screen and (max-width:499px){
+    .Product{
+        width: 90%;
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px 12px;
+        align-items: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+    }
+}
+
+@media  (min-width:500px) and (max-width:999px){
+    .Product{
+        border: 1px solid red;
+        width: 90%;
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px 12px;
+        align-items: center;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
 }

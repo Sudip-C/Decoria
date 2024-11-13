@@ -18,14 +18,12 @@
 }
 .middle{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
-
 }
 .middleNav{
-    
     width: 80%;
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
    padding:10px;
 }
@@ -33,6 +31,12 @@
     width: 50%;
     display: flex;
     justify-content:center;
+}
+.flex1 .Logo{
+width: 25%;
+}
+.ham_icon{
+    display: none;
 }
 .flex1>input{
     width: 500px;
@@ -49,6 +53,14 @@
     justify-content:space-evenly;
     align-items: center;
 }
+/* .flex2_close{
+    border: 2px solid red;
+
+    width: 25%;
+    display: none;
+    justify-content:space-evenly;
+    align-items: center;
+} */
 
 .bottom{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
@@ -59,4 +71,132 @@
     padding: 10px;
     display: flex;
     justify-content:space-evenly ;
+}
+
+@media (min-width:500px) and (max-width:850px){
+    .middle{
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+        border: 2px solid red;
+    }
+    .middleNav{
+        border: 2px solid green;
+    
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       padding:10px;
+    }
+    .flex1{
+        border: 2px solid green;
+    
+        width: 50%;
+        display: flex;
+        justify-content:center;
+    }
+    .flex1 .Logo{
+        width: 80%;
+        border: 2px solid red;
+    }
+   
+    .flex1>input{
+        width: 500px;
+        text-align: center;
+        border: .5px solid black;
+        border-radius: 5px;
+        text-align: left;
+        margin-right: 20px;
+        padding: 5px;
+    }
+    .flex2{
+        border: 2px solid green;
+    
+        width: 25%;
+        display: flex;
+        justify-content:space-evenly;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width:499px){
+    .nav{
+        width: 100%;
+        padding: 8px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+     }
+     .nav> div{
+         display: flex;
+         justify-content: space-between;
+     }
+     .nav>div>h3{
+         margin: 10px;
+     }
+.middle{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+.middleNav{
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   padding:10px;
+}
+.flex1{
+    width: 85%;
+    display: flex;
+    justify-content:center;
+}
+.flex1 .Logo{
+width: 50%;
+}
+.ham_icon{
+    display: block;
+   
+}
+.flex1>input{
+    width: 300px;
+    text-align: center;
+    border: .5px solid black;
+    border-radius: 5px;
+    text-align: left;
+    margin-right: 20px;
+    padding: 5px;
+}
+.flex2{
+    width: 25%;
+    display: none;
+    justify-content:space-evenly;
+    align-items: center;
+}
+.active{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-between;
+}
+.active div{
+    /* border-bottom: .5px solid rgb(0, 0, 0); */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    padding: 5px 2px;
+}
+.bottom{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+.bottomNav{
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    gap: 3px;
+    justify-content:center ;
+}
+.bottomNav p{
+    font-size: 10px;
+    font-weight: 600;
+}
 }

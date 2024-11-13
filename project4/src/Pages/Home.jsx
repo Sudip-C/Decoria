@@ -50,11 +50,12 @@ function Home() {
 
       <div>
         <h1 style={{fontSize:"30px"}}>Popular Across Site</h1>
-        <div className='furniture'>
-         <img width="22%" src='https://www.ulcdn.net/images/products/201632/product/Larsson_Study_Table_TK_00_LP.jpg?1533033869' alt=''/>
-         <img width="22%" src='https://www.ulcdn.net/images/products/201808/product/Truman_Study_Table__Creamy_Crust_Finish_Teak_LP.jpg?1624608812' alt='name'/>
-         <img width="22%" src='https://www.ulcdn.net/images/products/82584/product/1956_Lounge___Ottoman_Replica_Black_LP.jpg?1519629745'alt=''/>
-         <img width="22%" src='https://www.ulcdn.net/images/products/159172/product/Thorpe_Upholstered_Storage_Bed_Queen_LP.jpg?1510822520'alt=''/>
+        <div className='furniture_third_banner'>
+
+         <img  src='https://www.ulcdn.net/images/products/201632/product/Larsson_Study_Table_TK_00_LP.jpg?1533033869' alt=''/>
+         <img  src='https://www.ulcdn.net/images/products/201808/product/Truman_Study_Table__Creamy_Crust_Finish_Teak_LP.jpg?1624608812' alt='name'/>
+         <img  src='https://www.ulcdn.net/images/products/82584/product/1956_Lounge___Ottoman_Replica_Black_LP.jpg?1519629745'alt=''/>
+         <img  src='https://www.ulcdn.net/images/products/159172/product/Thorpe_Upholstered_Storage_Bed_Queen_LP.jpg?1510822520'alt=''/>
         </div>
       </div>
 
@@ -63,27 +64,39 @@ function Home() {
         <div className='customers'>
        
             <div>
-                <img src={customer} alt=''width="20%"/>
+                <div className='profile_pic'>
+                <img src={customer} alt=''/>
+                </div>
                 <p>SHEEKA CHINNAPARA</p>
                 <p>via Facebook</p>
-                <img   width="20%" src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
-                <button>VIEW PRODUCT</button>
+                <div className='product_image'>
+                  <img src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
+                </div>
+                <button className='view_product'>VIEW PRODUCT</button>
                 <p><i>"Having beautiful furniture in your homes...</i></p>
             </div>
             <div>
-            <img src={customer} alt=''width="20%"/>
+                <div className='profile_pic'>
+                <img src={customer} alt=''/>
+                </div>
                 <p>SHEEKA CHINNAPARA</p>
                 <p>via Facebook</p>
-                <img width="20%" src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
-                <button>VIEW PRODUCT</button>
+                <div className='product_image'>
+                  <img src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
+                </div>
+                <button className='view_product'>VIEW PRODUCT</button>
                 <p><i>"Having beautiful furniture in your homes...</i></p>
             </div>
             <div>
-            <img src={customer} width="20%" alt=''/>
+                <div className='profile_pic'>
+                <img src={customer} alt=''/>
+                </div>
                 <p>SHEEKA CHINNAPARA</p>
                 <p>via Facebook</p>
-                <img  width="20%" src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
-                <button>VIEW PRODUCT</button>
+                <div className='product_image'>
+                  <img src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
+                </div>
+                <button className='view_product'>VIEW PRODUCT</button>
                 <p><i>"Having beautiful furniture in your homes...</i></p>
             </div>
 

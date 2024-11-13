@@ -14,48 +14,54 @@ import {
   } from '@chakra-ui/react';
   import {Link as NavLink} from "react-router-dom"
 
-  import { useContext, useState } from "react";
+  import { useContext, useEffect, useState } from "react";
   import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/AuthContext';
-  
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../Redux/action';
   const initState={
     email:"",
     password:""
   }
 
+  
 
   export default function Login() {
     const [formState,setFormState]=useState(initState)
 
 const{loginUser,logoutUser,authState}=useContext(AuthContext)
+
 const handleChange=(e)=>{
-  setFormState({...formState,[e.target.name]:e.target.value})
+  e.preventDefault()
+  setFormState((prev)=>
+  ({
+    ...prev,
+    [e.target.name]:e.target.value
+  })
+
+)
 }
 
 let Navigate=useNavigate()
+let token=useSelector((e)=>e.token)
+
+let dispatch=useDispatch()
 
 const handleSubmit=(e)=>{
 e.preventDefault()
-fetch('https://reqres.in/api/login', {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(formState),
-})
-  .then((response) => response.json())
-  .then((data) => {
-    if(data.token){
-      loginUser(data.token)
-      Navigate("/")
-    }
-  })
-  .catch((error) => {
-    console.log('Error:', error);
-  });
+
+dispatch(login(formState))
+
 }
 
+useEffect(()=>{
+if(token){
+  Navigate('/')
+}
+},[token,Navigate])
+
 const{email,password}=formState
+
     return (
       <Flex
         minH={'100vh'}
@@ -96,7 +102,7 @@ const{email,password}=formState
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
-                  }} onClick={handleSubmit} >
+                  }} onClick={(e)=>handleSubmit(e)} >
                   Sign in
                 </Button>
 

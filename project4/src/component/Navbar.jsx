@@ -1,15 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import "../CSS/Navbar.css"
 import logo from "../image/Logo2.png"
 import track from "../image/tracking.png"
 import user from "../image/user.png"
 import love from "../image/love.png"
 import cart from "../image/shopping-cart.png"
-import {Link} from "react-router-dom"
-import { AuthContext } from '../context/AuthContext'
+import {Link as NavLink} from "react-router-dom"
+import { AuthContext } from '../context/AuthContext';
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RxCross1 } from "react-icons/rx";
 
 function Navbar() {
 const{authState,search}=useContext(AuthContext)
+const [isActive,setIsActive]=useState(true)
+const handleHide=()=>{
+setIsActive(!isActive)
+}
 
     return (
         <div>
@@ -29,29 +35,32 @@ const{authState,search}=useContext(AuthContext)
           <div className='middle'>
           <div className='middleNav'>
             <div className='flex1' >
-            <Link to="/"> <img  style={{width:"25%"}} src={logo} alt="alt"/></Link>
+            <NavLink to="/"> <div className='Logo' ><img   src={logo} alt="alt"/></div></NavLink>
             <input type="text" placeholder='Search' onChange={(e)=>search(e.target.value)} />
             </div>
-            <div className='flex2' >
-            <Link> <img style={{width:"40%"}}src={track} alt="name"/></Link>
-            <Link to="/login"><p>{authState.isAuth?"Hi,User":""}</p><img style={{width:"30%"}}src={user} alt="name"/></Link> 
-            <Link to="/wishlist"><img style={{width:"30%"}}src={love} alt="name"/></Link>
-            <Link to="/cart"><img style={{width:"30%"}}src={cart} alt="name"/></Link>
+            <button onClick={handleHide} className="ham_icon">
+            {isActive?<GiHamburgerMenu />:<RxCross1 />}
+            </button>
+            <div className={isActive?'flex2':"flex2 active"} >
+            <NavLink> <div><img style={{width:"40%"}}src={track} alt="name"/></div></NavLink>
+            <NavLink to="/login"><div><p>{authState.isAuth?authState.name.slice(0,3):""}</p><img style={{width:"30%"}}src={user} alt="name"/></div></NavLink> 
+            <NavLink to="/wishlist"><div><img style={{width:"30%"}}src={love} alt="name"/></div></NavLink>
+            <NavLink to="/cart"><div><img style={{width:"30%"}}src={cart} alt="name"/></div></NavLink>
             </div>
            </div>
           </div>
            <div className="bottom">
             <div className='bottomNav'>
-               <Link to="/product"> <h5>Deal Zone</h5></Link>
-                <h5>Sofas & Recliners</h5>
-                <h5>Living</h5>
-                <h5>Bedroom & Mattresses</h5>
-                <h5>Dining</h5>
-                <h5>Storage</h5>
-                <h5>Study</h5>
-                <h5>Lighting& Decor</h5>
-                <h5>Outdoor</h5>
-                <h5>Interior</h5>
+               <NavLink to="/product"> <p>Deal Zone</p></NavLink>
+                <p>Sofas & Recliners</p>
+                <p>Living</p>
+                <p>Bedroom & Mattresses</p>
+                <p>Dining</p>
+                <p>Storage</p>
+                <p>Study</p>
+                <p>Lighting& Decor</p>
+                <p>Outdoor</p>
+                <p>Interior</p>
             </div>
            </div>
         </div>
