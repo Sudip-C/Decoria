@@ -3,7 +3,7 @@ import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Imag
   
  
   
-  function ProductCard({Title,image,Price,category}) {
+  function ProductCard({Title,image,Price,Category}) {
     
     return (
       
@@ -17,7 +17,7 @@ import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Imag
         <Stack mt='6' spacing='3'>
           <Heading size='md'>{Title.slice(0,15)}</Heading>
           <Text>
-           {category}
+           {Category}
           </Text>
           <Text color='blue.600' fontSize='2xl'>
             ₹{Price}

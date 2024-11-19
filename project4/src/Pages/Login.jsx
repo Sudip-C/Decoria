@@ -43,7 +43,7 @@ const handleChange=(e)=>{
 }
 
 let Navigate=useNavigate()
-let token=useSelector((e)=>e.token)
+let token=useSelector((e)=>e.auth.token)
 
 let dispatch=useDispatch()
 
@@ -51,14 +51,12 @@ const handleSubmit=(e)=>{
 e.preventDefault()
 
 dispatch(login(formState))
-
-}
-
-useEffect(()=>{
 if(token){
   Navigate('/')
 }
-},[token,Navigate])
+}
+
+
 
 const{email,password}=formState
 

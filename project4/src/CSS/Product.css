@@ -24,7 +24,6 @@
 
 @media  (min-width:500px) and (max-width:999px){
     .Product{
-        border: 1px solid red;
         width: 90%;
         margin: auto;
         margin-top: 50px;

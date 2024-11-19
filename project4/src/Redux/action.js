@@ -1,5 +1,6 @@
 import axios from "axios"
-import { LOGIN_REQUEST_FAILED, LOGIN_REQUEST_PENDING, LOGIN_REQUEST_SUCCESS, SIGNUP_REQUEST_FAILED, SIGNUP_REQUEST_PENDING, SIGNUP_REQUEST_SUCCESS } from "./actionType"
+import { GET_PRODUCT_FAILED, GET_PRODUCT_PENDING, 
+    GET_PRODUCT_SUCCESS, LOGIN_REQUEST_FAILED, LOGIN_REQUEST_PENDING, LOGIN_REQUEST_SUCCESS, SIGNUP_REQUEST_FAILED, SIGNUP_REQUEST_PENDING, SIGNUP_REQUEST_SUCCESS } from "./actionType"
 import { API } from "../API/api"
 
 export const login=(data)=>async(dispatch)=>{
@@ -23,3 +24,15 @@ export const signup=(data)=>async(dispatch)=>{
     }
     
     }
+
+export const getAllproducts =async(dispatch)=>{
+    try {
+        dispatch({type:GET_PRODUCT_PENDING})
+
+        const response =await axios.get(`${API}/products/getProduct`)
+        
+        dispatch({type:GET_PRODUCT_SUCCESS,payload:response})
+    } catch (error) {
+        dispatch({type:GET_PRODUCT_FAILED})
+    }
+}

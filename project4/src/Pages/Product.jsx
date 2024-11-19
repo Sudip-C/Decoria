@@ -6,11 +6,15 @@ import {Link as NavLink} from "react-router-dom"
 import { AuthContext } from '../context/AuthContext'
 import { Select } from '@chakra-ui/react'
 import { API_URL } from '../API/api'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { getAllproducts } from '../Redux/action'
 function Product() {
 
 const [product,setProduct]=useState([])
 const[order,setOrder]=useState("")
 const[Category,setCategory]=useState("")
+const [isLoading, setIsLoading]=useState(false)
+
 const{filter}=useContext(AuthContext)
 
 let URL;
@@ -32,11 +36,19 @@ else if(Category){
   URL=`${API_URL}`
 }
 
+// const dispatch=useDispatch()
+
 const getData=()=>{
+setIsLoading(true)
     axios.get(URL)
 .then((res)=>setProduct(res.data))
+setIsLoading(false)
 }
 useEffect(()=>{getData()},[filter,order,Category])
+
+// useEffect(()=>{dispatch(getAllproducts)},[])
+
+// const Prod=useSelector(e=>(e.product.Product_Data))
 
     return (
         <>
@@ -52,6 +64,7 @@ useEffect(()=>{getData()},[filter,order,Category])
           <option value="chair">Chair</option>
           <option value="Electronics">Light</option>
         </Select>
+        
       <div className='Product' >
         {
         product?.map((el)=>(
