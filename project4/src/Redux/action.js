@@ -36,3 +36,13 @@ export const getAllproducts =async(dispatch)=>{
         dispatch({type:GET_PRODUCT_FAILED})
     }
 }
+
+export const getFilteredProducts =(filters)=> async (dispatch) => {
+    try {
+      const response = await axios.get(`${API}/products/filter`, { params: filters });
+      dispatch({type:GET_PRODUCT_SUCCESS,payload:response})
+    } catch (error) {
+      dispatch({type:GET_PRODUCT_FAILED})
+      
+    }
+  };

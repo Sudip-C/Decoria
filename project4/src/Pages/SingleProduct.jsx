@@ -20,7 +20,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
   import axios from "axios"
 import { AuthContext } from '../context/AuthContext';
-import { API_URL } from '../API/api';
+import { API } from '../API/api';
 
   export default function SingleProduct() {
 
@@ -30,7 +30,7 @@ const[singleData,setSingleData]=useState({})
 const{Add_to_Cart,cart,wishlist,Add_to_Wishlist}=useContext(AuthContext)
 
 const Single=(id)=>{
-    axios.get(`${API_URL}/${id}`)
+    axios.get(`${API}/products/${id}`)
     .then((res)=>setSingleData(res.data))
 }
 
