@@ -8,6 +8,55 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
 }
+
+.loader {
+    height: 30px;
+    aspect-ratio: 5;
+    margin: auto;
+    margin-bottom: 40px;
+    display: grid;
+  }
+  .loader:before,
+  .loader:after {
+    content: "";
+    grid-area: 1/1;
+    height: inherit;
+    --_g: no-repeat radial-gradient(farthest-side,#000 94%,#0000);
+    background:
+      var(--_g) left,
+      var(--_g) right;
+    background-size: 30px 100%;
+    background-repeat: no-repeat;
+    animation: l35 .5s infinite linear; 
+  }
+  .loader:after {
+    margin-left: auto;
+    --s:-1;
+  }
+  @keyframes l35 {
+    0%   {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 2.3 }
+    33%  {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 2.3 }
+    66%  {transform:translateY(calc(var(--s,1)*8px));aspect-ratio: 3.7 }
+    100% {transform:translateY(calc(var(--s,1)*0px));aspect-ratio: 3.7 }
+  }
+  @keyframes l2 {
+    0%,25% {
+      background-size: 8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;
+      background-position: 0 50%,0 calc(50% - 2px),0 calc(50% + 2px),50% 50%,50% calc(50% - 2px),50% calc(50% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);
+   }
+   50% {
+      background-size: 8px 100%,8px 4px,8px 4px,8px 0,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;
+      background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(50% - 2px),50% calc(50% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);
+   }
+   75% {
+      background-size: 8px 100%,8px 4px,8px 4px,8px 100%,8px 4px,8px 4px,8px 0,8px 4px,8px 4px;
+      background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(0% - 2px),50% calc(100% + 2px),100% 50%,100% calc(50% - 2px),100% calc(50% + 2px);
+   }
+   95%,100% {
+      background-size: 8px 100%,8px 4px, 8px 4px,8px 100%,8px 4px,8px 4px,8px 100%,8px 4px,8px 4px;
+      background-position: 0 50%,0 calc(0% - 2px),0 calc(100% + 2px),50% 50%,50% calc(0% - 2px),50% calc(100% + 2px),100% 50%,100% calc(0% - 2px),100% calc(100% + 2px);
+   }
+  }
 @media only screen and (max-width:499px){
     .Product{
         width: 90%;

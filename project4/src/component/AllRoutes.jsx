@@ -18,9 +18,7 @@ function AllRoutes() {
         <Route path="/" element={<Home/>} ></Route>
         <Route path="/login" element={<Login/>} ></Route>
         <Route path="*" element={<NotFound/>} ></Route>
-        <Route path="/product" element={<PrivateRoute>
-        <Product/></PrivateRoute>
-        } ></Route>
+        <Route path="/product" element={<Product/>} ></Route>
         <Route path="/signup" element={<SignUp/>} ></Route>
         <Route path="/product/:id" element={<PrivateRoute><SingleProduct/></PrivateRoute>} ></Route>
         <Route path='/wishlist' element={<PrivateRoute> <WishList/></PrivateRoute> }></Route>

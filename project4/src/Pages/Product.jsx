@@ -5,14 +5,13 @@ import {Link as NavLink} from "react-router-dom"
 import { Select } from '@chakra-ui/react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllproducts, getFilteredProducts } from '../Redux/action';
-import { AuthContext } from '../context/AuthContext'
+import { AuthContext } from '../context/AuthContext';
+
 function Product() {
 
-const [product,setProduct]=useState([])
 const[category,setCategory]=useState("");
 const [sort, setSort] = useState('');
 
-const [isLoading, setIsLoading]=useState(false)
 
 const{filter}=useContext(AuthContext)
 
@@ -30,9 +29,9 @@ useEffect(()=>{
   ,[category,sort,filter])
 
 const Prod=useSelector(e=>(e.product.Product_Data))
-
+const {isLoading}=useSelector(e=>e.product)
     return (
-        <>
+        <div>
         <Select placeholder="Sort By Price" w="250px" m="20px" onChange={(e)=>setSort(e.target.value)}>
         <option value="asc">Low to High</option>
           <option value="desc">High to Low</option>
@@ -46,16 +45,21 @@ const Prod=useSelector(e=>(e.product.Product_Data))
           <option value="Electronics">Light</option>
         </Select>
         
-      <div className='Product' >
+        {isLoading?<div className='loader'>
+          
+        </div>:
+        <div className='Product' >
         {
         Prod?.map((el)=>(
             <div key={el._id}>
-         <NavLink to={`/product/${el._id}`}>  <ProductCard {...el}/></NavLink>    
+         <NavLink to={`/product/${el._id}`}> 
+          <ProductCard {...el}/>
+         </NavLink>    
             </div>
         ))
       }
+      </div>}
       </div>
-      </>
     )
 }
 

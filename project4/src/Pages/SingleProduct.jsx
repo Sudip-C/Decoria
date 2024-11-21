@@ -31,7 +31,12 @@ const{Add_to_Cart,cart,wishlist,Add_to_Wishlist}=useContext(AuthContext)
 
 const Single=(id)=>{
     axios.get(`${API}/products/${id}`)
-    .then((res)=>setSingleData(res.data))
+    .then((res)=>{
+      console.log(res)
+      setSingleData(res.data)})
+      .catch((err)=>{
+        console.warn(err)
+      })
 }
 
 const AddToCart=()=>{

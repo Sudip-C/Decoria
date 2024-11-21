@@ -1,8 +1,10 @@
 import React from 'react'
-
+import notfound from "../image/notfound.webp"
 function NotFound() {
     return (
-       <div><h1>404 Page Not Found</h1></div> 
+       <div style={{display:"flex",justifyContent:"center"}}>
+       <img style={{width:'50%'}} src={notfound} alt="" />
+       </div> 
     )
 }
 
