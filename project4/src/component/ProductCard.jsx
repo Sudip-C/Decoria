@@ -1,40 +1,24 @@
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Stack, Text } from "@chakra-ui/react";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
-import { CiHeart } from "react-icons/ci";
- 
-  
-  function ProductCard({Title,image,Price,Category}) {
+import {Card, CardBody,Heading, Image,Text } from "@chakra-ui/react";
+
+  function ProductCard({Title,image,Price,Description}) {
     
     return (
       
       <Card maxW='sm'>
-      <CardBody>
         <Image
         src={image}
           alt={Title}
-          borderRadius='lg'
+          borderTopRadius='lg'
         />
-        <Stack mt='6' spacing='3'>
+        <CardBody>
           <Heading size='md'>{Title.slice(0,15)}</Heading>
           <Text>
-           {Category}
+           {Description.slice(0,30)}
           </Text>
-          <Text color='blue.600' fontSize='2xl'>
+          <Text color='black.600' fontSize='2xl'>
             ₹{Price}
           </Text>
-        </Stack>
       </CardBody>
-      <Divider />
-      <CardFooter>
-        <ButtonGroup spacing='100'>
-          <Button variant='outline' size="md" colorScheme='blue'>
-          <MdOutlineAddShoppingCart />
-          </Button>
-          <Button variant='outline' size="md"  colorScheme='red'>
-          <CiHeart />
-          </Button>
-        </ButtonGroup>
-      </CardFooter>
     </Card>
    
     );

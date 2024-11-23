@@ -46,3 +46,15 @@ export const getFilteredProducts =(filters)=> async (dispatch) => {
       
     }
   };
+
+export const addToCart =(data,Token) =>async (dispatch)=>{
+    try {
+        const response=await axios.post(`${API}/users/cart`,data,{
+            headers:{
+                Authorization:`Bearer ${Token}`
+            }
+        })
+    } catch (error) {
+        console.error("message:",error.message)
+    }
+}
