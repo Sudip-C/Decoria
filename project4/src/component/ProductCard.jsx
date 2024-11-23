@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Image, Stack, Text } from "@chakra-ui/react";
-
-  
+import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { CiHeart } from "react-icons/ci";
  
   
   function ProductCard({Title,image,Price,Category}) {
@@ -26,12 +26,12 @@ import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Imag
       </CardBody>
       <Divider />
       <CardFooter>
-        <ButtonGroup spacing='2'>
-          <Button variant='solid' colorScheme='blue'>
-            Buy now
+        <ButtonGroup spacing='100'>
+          <Button variant='outline' size="md" colorScheme='blue'>
+          <MdOutlineAddShoppingCart />
           </Button>
-          <Button variant='ghost' colorScheme='blue'>
-            Add to cart
+          <Button variant='outline' size="md"  colorScheme='red'>
+          <CiHeart />
           </Button>
         </ButtonGroup>
       </CardFooter>

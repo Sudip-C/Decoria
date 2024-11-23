@@ -1,6 +1,6 @@
 import React from 'react'
 import "../CSS/Home.css"
-
+import {Link as Navlink} from "react-router-dom"
 
 import customer from "../image/Customer.png"
 import Carousals from '../component/carousal';
@@ -72,7 +72,7 @@ function Home() {
                 <div className='product_image'>
                   <img src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
                 </div>
-                <button className='view_product'>VIEW PRODUCT</button>
+               <Navlink to="/product"><button className='view_product'>VIEW PRODUCT</button></Navlink> 
                 <p><i>"Having beautiful furniture in your homes...</i></p>
             </div>
             <div>
@@ -84,7 +84,7 @@ function Home() {
                 <div className='product_image'>
                   <img src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
                 </div>
-                <button className='view_product'>VIEW PRODUCT</button>
+                <Navlink to="/product"><button className='view_product'>VIEW PRODUCT</button></Navlink> 
                 <p><i>"Having beautiful furniture in your homes...</i></p>
             </div>
             <div>
@@ -96,7 +96,7 @@ function Home() {
                 <div className='product_image'>
                   <img src='https://www.ulcdn.net/testimonials/250x300/2647_20160821075017.jpg' alt=""/>
                 </div>
-                <button className='view_product'>VIEW PRODUCT</button>
+                <Navlink to="/product"><button className='view_product'>VIEW PRODUCT</button></Navlink> 
                 <p><i>"Having beautiful furniture in your homes...</i></p>
             </div>
 
