@@ -1,9 +1,11 @@
-import { GET_PRODUCT_FAILED, GET_PRODUCT_PENDING, GET_PRODUCT_SUCCESS } from "../actionType"
+import { GET_CART_SUCCESS, GET_PRODUCT_FAILED, GET_PRODUCT_PENDING, GET_PRODUCT_SUCCESS, GET_WISHLIST_SUCCESS } from "../actionType"
 
 const InitialState={
     Product_Data:[],
+    cart:[],
+    wishlist:[],
     isLoading:false,
-    isError:false
+    isError:false,
 }
 
 export default function ProductReducer(state=InitialState,action){
@@ -19,6 +21,14 @@ export default function ProductReducer(state=InitialState,action){
         case GET_PRODUCT_FAILED:
             return{
                 ...state,isLoading:false,isError:true
+            }
+        case GET_CART_SUCCESS:
+            return{
+                ...state,cart:action.payload
+            }
+        case GET_WISHLIST_SUCCESS:
+            return{
+                ...state,wishlist:action.payload
             }
         default:
             return state

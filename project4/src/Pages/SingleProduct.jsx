@@ -21,6 +21,7 @@ import { useParams } from 'react-router-dom';
   import axios from "axios"
 import { AuthContext } from '../context/AuthContext';
 import { API } from '../API/api';
+import { useDispatch } from 'react-redux';
 
   export default function SingleProduct() {
 
@@ -28,6 +29,8 @@ const{id}=useParams()
 
 const[singleData,setSingleData]=useState({})
 const{Add_to_Cart,cart,wishlist,Add_to_Wishlist}=useContext(AuthContext)
+
+const dispatch=useDispatch()
 
 const Single=(id)=>{
     axios.get(`${API}/products/${id}`)
@@ -43,6 +46,7 @@ const AddToCart=()=>{
 Add_to_Cart(singleData);
   localStorage.setItem("item",JSON.stringify(cart))
   alert("Product added to cart succesfully.")
+  
 }
 
 const AddTowishlist=()=>{
