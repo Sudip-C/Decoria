@@ -1,7 +1,7 @@
 import { LOGIN_REQUEST_SUCCESS } from "../actionType"
 
 const InitialState={
-    isAuth:true,
+    isAuth:false,
     token:null
 }
 
