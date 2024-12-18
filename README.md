@@ -3,14 +3,15 @@ A SHOPPING PLATFORM WHERE A CUSTOMER CAN FIND ALL THE FURNITURES FOR THEIR HOME.
 
 Original-Website: https://www.urbanladder.com
 
-Cloned-Website:  https://mydecor00.netlify.app
+Cloned-Website:  https://jade-starburst-f11e69.netlify.app
 
 Technology Stack Used 🌟
 React
 CSS
 JavaScript
 Chakra UI
-For storing user data Reqres Api has been used
+Node.js
+Express.js
 
 # FEATURES
 
@@ -25,6 +26,5 @@ pagination has been implementd. Admin can add new product or delete a product fr
 
 ADMIN:: username=> admin
         password=> admin
-USER::  email=>    eve.holt@reqres.in
-        password=> cityslicka
+## New user have to signup first then login
 
