@@ -17,24 +17,24 @@ function AuthContextProvider({children}) {
     const [filter,setFilter]=useState("")
     let cart=[]
     let wishlist=[]
-    const loginUser=(token,name)=>{
-        setState(
-            {...state,
-            isAuth:true,
-            token:token,
-            name:name
-        }
-        )
-    }
+    // const loginUser=(token,name)=>{
+    //     setState(
+    //         {...state,
+    //         isAuth:true,
+    //         token:token,
+    //         name:name
+    //     }
+    //     )
+    // }
 
-    const logoutUser=()=>{
-       setState({
-            ...state,
-            isAuth:false,
-            token:null
-        })
+    // const logoutUser=()=>{
+    //    setState({
+    //         ...state,
+    //         isAuth:false,
+    //         token:null
+    //     })
        
-    }
+    // }
     const search=(val)=>{
         setFilter(val)
     }
@@ -56,7 +56,7 @@ function AuthContextProvider({children}) {
     }    
     useEffect(()=>{totalPages()},[])
 return(
-    <AuthContext.Provider value={{authState:state,loginUser,logoutUser,search,filter,
+    <AuthContext.Provider value={{authState:state,search,filter,
     Add_to_Cart,cart,wishlist,Add_to_Wishlist,totalPage}}>
 
         {children}

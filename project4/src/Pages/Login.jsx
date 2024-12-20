@@ -14,11 +14,13 @@ import {
   } from '@chakra-ui/react';
   import {Link as NavLink} from "react-router-dom"
 
-  import { useContext, useEffect, useState } from "react";
-  import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from '../context/AuthContext';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../Redux/action';
+import { login, logout } from '../Redux/action';
+
+
   const initState={
     email:"",
     password:""
@@ -29,7 +31,7 @@ import { login } from '../Redux/action';
   export default function Login() {
     const [formState,setFormState]=useState(initState)
 
-const{loginUser,logoutUser,authState}=useContext(AuthContext)
+const{authState}=useContext(AuthContext)
 
 const handleChange=(e)=>{
   e.preventDefault()
@@ -53,7 +55,9 @@ e.preventDefault()
 dispatch(login(formState))
 if(token){
   Navigate('/')
-}
+}else(
+  alert("wrong credential!")
+)
 }
 
 
@@ -109,7 +113,7 @@ const{email,password}=formState
                   color={'white'}
                   _hover={{
                     bg: 'blue.500',
-                  }} onClick={logoutUser} >
+                  }} onClick={()=>dispatch(logout)} >
                   Sign out
                 </Button>
               <NavLink to="/admin">  <Button

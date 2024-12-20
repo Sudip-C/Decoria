@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST_SUCCESS } from "../actionType"
+import { LOGIN_REQUEST_SUCCESS, LOGOUT } from "../actionType"
 
 const InitialState={
     isAuth:false,
@@ -10,6 +10,10 @@ export default function AuthReducer(state=InitialState,action){
         case LOGIN_REQUEST_SUCCESS:
             return{
                 ...state,isAuth:true,token:action.payload.data.token
+            }
+        case LOGOUT:
+            return{
+                ...state,isAuth:false,token:null
             }
         default:
             return state
